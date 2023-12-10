@@ -126,3 +126,23 @@ alias branches='git branch --sort=-committerdate'
 alias vim='nvim'
 
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+select_and_checkout() {
+    # Get the list of branches sorted by committed date
+    local branches
+    branches=$(git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads/)
+
+    # Use fzf to select a branch
+    local selected_branch
+    selected_branch=$(echo "$branches" | fzf +m --prompt="Select a branch: ")
+
+    # If a branch is selected, checkout the selected branch
+    if [ -n "$selected_branch" ]; then
+        git checkout "$selected_branch"
+        echo "Checked out branch: $selected_branch"
+    else
+        echo "No branch selected. Exiting..."
+    fi
+}
+
+alias co='select_and_checkout'
