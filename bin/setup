@@ -1,6 +1,5 @@
 repo_directory=$(git rev-parse --show-toplevel)
 
-# Check if the Alacritty folder exists in the repository
 if [ -d "$repo_directory/alacritty" ]; then
     # Create a symbolic link to ~/.config/alacritty
     ln -s "$repo_directory/alacritty" "$HOME/.config/alacritty"
@@ -8,4 +7,14 @@ if [ -d "$repo_directory/alacritty" ]; then
 else
     echo "Alacritty folder not found in the repository."
 fi
+
+if [ -d "$repo_directory/nvim" ]; then
+    # Create a symbolic link to ~/.config/nvim
+    ln -s "$repo_directory/nvim" "$HOME/.config/nvim"
+    echo "Symbolic link created: ~/.config/nvim"
+else
+    echo "nvim folder not found in the repository."
+fi
+
+ln "$repo_directory/zshrc" "$HOME/.zshrc"
 
