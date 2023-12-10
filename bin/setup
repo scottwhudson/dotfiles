@@ -1,0 +1,11 @@
+repo_directory=$(git rev-parse --show-toplevel)
+
+# Check if the Alacritty folder exists in the repository
+if [ -d "$repo_directory/alacritty" ]; then
+    # Create a symbolic link to ~/.config/alacritty
+    ln -s "$repo_directory/alacritty" "$HOME/.config/alacritty"
+    echo "Symbolic link created: ~/.config/alacritty"
+else
+    echo "Alacritty folder not found in the repository."
+fi
+
