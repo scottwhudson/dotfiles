@@ -134,7 +134,7 @@ select_and_checkout() {
 
     # Use fzf to select a branch
     local selected_branch
-    selected_branch=$(echo "$branches" | fzf +m --prompt="Select a branch: ")
+    selected_branch=$(echo "$branches" | fzf +m --preview='git log main..{}' --prompt="Select a branch: ")
 
     # If a branch is selected, checkout the selected branch
     if [ -n "$selected_branch" ]; then
