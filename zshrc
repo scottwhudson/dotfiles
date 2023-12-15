@@ -105,6 +105,7 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 export RUBY_DEBUG_NO_RELINE=1
 export EDITOR="nvim"
+export COLORTERM=truecolor
 
 # Aliases
 alias src='source ~/.zshrc'
@@ -124,8 +125,17 @@ alias up='tmuxinator start prydev'
 alias down='tmuxinator stop prydev'
 alias branches='git branch --sort=-committerdate'
 alias vim='nvim'
+alias tropic='cd ~/Development/tropic'
 
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+select_and_apply_stash() {
+	local stashes
+	stashes=$(git stash list)
+
+	local selected_stash
+	echo
+}
 
 select_and_checkout() {
     # Get the list of branches sorted by committed date
@@ -134,7 +144,7 @@ select_and_checkout() {
 
     # Use fzf to select a branch
     local selected_branch
-    selected_branch=$(echo "$branches" | fzf +m --preview='git log main..{}' --prompt="Select a branch: ")
+    selected_branch=$(echo "$branches" | fzf +m --preview="git log main..{} --color=always --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -p" --prompt="Select a branch: ")
 
     # If a branch is selected, checkout the selected branch
     if [ -n "$selected_branch" ]; then
