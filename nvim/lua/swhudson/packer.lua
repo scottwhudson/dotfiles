@@ -5,6 +5,7 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
   use 'Mofiqul/dracula.nvim'
+  use "lukas-reineke/indent-blankline.nvim"
 
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.4',
