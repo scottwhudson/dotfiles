@@ -1,4 +1,6 @@
 require("swhudson.remap")
+require("swhudson.lint")
+
 require('gitsigns').setup()
 require('lualine').setup {
   options = { theme = 'dracula' },
@@ -38,3 +40,8 @@ vim.api.nvim_exec([[
 ]], false)
 
 require("ibl").setup()
+require("mason").setup()
+
+require('lint').linters_by_ft = {
+  ruby = {'standardrb'}
+}

@@ -124,7 +124,7 @@ alias fresh='bin/fresh --with-ffs'
 alias up='tmuxinator start prydev'
 alias down='tmuxinator stop prydev'
 alias branches='git branch --sort=-committerdate'
-alias vim='nvim'
+alias vim='nvim -n'
 alias tropic='cd ~/Development/tropic'
 
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
