@@ -1,4 +1,9 @@
+-- Global opts
 vim.g.mapleader = " "
+vim.o.tabstop = 2
+vim.opt.number = true
+vim.opt.relativenumber = true
+
 -- Keys
 vim.keymap.set("i", "jj", "<Esc>")
 vim.keymap.set("i", "bb", "binding.b")
