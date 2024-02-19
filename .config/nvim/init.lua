@@ -1,4 +1,9 @@
+-- Global opts
 vim.g.mapleader = " "
+vim.o.tabstop = 2
+vim.opt.number = true
+vim.opt.relativenumber = true
+
 -- Keys
 vim.keymap.set("i", "jj", "<Esc>")
 vim.keymap.set("i", "bb", "binding.b")
@@ -19,3 +24,18 @@ vim.keymap.set("n", "<leader>j", ":terminal")
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>t", vim.cmd.TestNearest)
 vim.keymap.set("n", "<leader>T", vim.cmd.TestFile)
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup("plugins")
