@@ -19,7 +19,7 @@ vim.keymap.set("t", "<C-h>", "<cmd>wincmd h<CR>")
 vim.keymap.set("t", "<C-j>", "<cmd>wincmd j<CR>")
 vim.keymap.set("t", "<C-k>", "<cmd>wincmd k<CR>")
 vim.keymap.set("t", "<C-l>", "<cmd>wincmd l<CR>")
-vim.keymap.set("n", "<leader>j", ":terminal")
+
 -- Commands
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>t", vim.cmd.TestNearest)
