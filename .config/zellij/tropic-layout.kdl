@@ -9,9 +9,9 @@ layout {
             plugin location="zellij:status-bar"
         }
     }
-    cwd "~/Development/tropic" 
+    cwd "~/Development/tropic"
 		tab name="vim" focus=true {
-				pane { 
+				pane {
 				  command "nvim"
 				}
     }
@@ -34,10 +34,22 @@ layout {
 								args "-f" "log/development.log"
 				}
 		}
-
-		tab name="services"{
+		tab name="worker"{
 				pane {
-								command "bin/prydev"
+								command "bundle"
+								args "exec" "sidekiq" "-c" "3"
+				}
+		}
+		tab name="js"{
+				pane {
+								command "yarn"
+								args "start" "--watch"
+				}
+		}
+		tab name="css"{
+				pane {
+								command "bin/rails"
+								args "tailwindcss:watch"
 				}
 		}
 }
