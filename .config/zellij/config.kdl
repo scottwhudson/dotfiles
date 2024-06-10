@@ -1,5 +1,5 @@
 default_mode "locked"
 theme "dracula"
 pane_frames false
-//simplified_ui true
+simplified_ui true
 //default_layout "compact"
