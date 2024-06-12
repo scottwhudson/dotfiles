@@ -15,7 +15,7 @@ layout {
 				  command "nvim"
 				}
     }
-		tab name="zsh"
+		//tab name="zsh"
 		tab name="rails" {
 				pane {
 								command "bin/rails"
