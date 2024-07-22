@@ -21,7 +21,7 @@ vim.keymap.set("t", "<C-k>", "<cmd>wincmd k<CR>")
 vim.keymap.set("t", "<C-l>", "<cmd>wincmd l<CR>")
 
 -- Commands
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", vim.cmd.Oil)
 vim.keymap.set("n", "<leader>t", vim.cmd.TestNearest)
 vim.keymap.set("n", "<leader>T", vim.cmd.TestFile)
 

@@ -14,6 +14,12 @@ return {
 				python = {
 					require("formatter.filetypes.python").black,
 				},
+				javascript = {
+					require("formatter.filetypes.javascript").prettier,
+				},
+				typescript = {
+					require("formatter.filetypes.typescript").prettier,
+				},
 				["*"] = {
 					-- "formatter.filetypes.any" defines default configurations for any
 					-- filetype
